@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: #0cc1e0;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
     top: 50%;
     left: 50%;
     border-radius: 0.6em;
+    background-color: #0cc1e0;
     
 }
 
@@ -60,13 +62,13 @@ a {
     transform: translate(-50%, -50%);
     z-index: 0; /* Coloca el botón debajo del canvas, pero sobre el video */
     padding: 10px 20px;
-    background-color: #0CC;
+    background-color: #0cc1e0;
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
     padding: 1%;
-    width: 23%;
+    width: 100%;
     
     
   }
@@ -84,7 +86,7 @@ a {
 
 
   .btn-primary {
-    background-color:#0CC;
+    background-color:#0cc1e0;
     border-color: rgb(46, 75, 75);
 }
 
@@ -98,11 +100,8 @@ a {
 
 @media (max-width: 600px) {
     .premio-imagen {
-        width: 100%; /* En pantallas pequeñas, la imagen ocupa el 100% */
-        max-height: 100vh; /* La imagen no será más alta que el 50% de la pantalla */
-    }
-
-    #scratch {
-        height: 15vh; /* El canvas será más pequeño en pantallas pequeñas */
+        width: 100vw; /* El video ocupará todo el ancho de la ventana */
+        height: 100vh; /* El video ocupará todo el alto de la ventana */
+        object-fit: cover; /* Se asegura de que el video cubra todo el espacio */
     }
 }

@@ -5,13 +5,23 @@
 }
 
 body {
-    height: 90vh;
-  background-color: #0CC;
+    background-color: #0CC; /* Color de fondo */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la pantalla */
 }
 
-.backgroundImage2{
-height: auto;
-width: 100%;
+.backgroundImage2 {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    height: 100vh; /* Ocupará toda la altura de la pantalla */
+    width: 100%; /* Ocupará el 100% del ancho de la pantalla */
+    background-color: #0CC; /* Color de fondo del contenedor */
+}
+
+.backgroundImage2 img {
+    max-width: 100%; /* La imagen ocupará hasta el 100% del ancho del contenedor */
+    height: auto; /* Mantén la proporción original de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin distorsión */
 }
 
 @media (max-width: 600px) {
