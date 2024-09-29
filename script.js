@@ -3,12 +3,18 @@ let context = canvas.getContext("2d");
 let backgroundImage = document.getElementById("backgroundImage"); // Obtener la imagen
 
 const init = () => {
+  // Limpiar el canvas al cargar la página
+  context.clearRect(0, 0, canvas.width, canvas.height); // Limpia todo el canvas
+  
   // Asegúrate de que la imagen esté cargada antes de dibujarla
   backgroundImage.onload = () => {
     context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); // Dibuja la imagen en el canvas
   };
 
- 
+  // Si la imagen ya estaba cargada antes de que onload se ejecutara
+  if (backgroundImage.complete) {
+    context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+  }
 };
 
 // Inicialmente, las posiciones del mouse son 0
@@ -54,6 +60,7 @@ const getXY = (e) => {
 isTouchDevice();
 // Iniciar el borrado
 canvas.addEventListener(events[deviceType].down, (event) => {
+    event.preventDefault(); // Evitar el desplazamiento de la página
     isDragged = true;
     getXY(event);
     scratch(mouseX, mouseY);
@@ -61,9 +68,7 @@ canvas.addEventListener(events[deviceType].down, (event) => {
 
 // Movimiento del mouse o toque
 canvas.addEventListener(events[deviceType].move, (event) => {
-    if (!isTouchDevice()) {
-        event.preventDefault();
-    }
+    event.preventDefault(); // Evitar el desplazamiento de la página
     if (isDragged) {
         getXY(event);
         scratch(mouseX, mouseY);
@@ -87,4 +92,5 @@ const scratch = (x, y) => {
     context.fill();
 };
 
+// Iniciar el proceso al cargar la página
 window.onload = init();
