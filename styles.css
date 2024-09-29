@@ -2,13 +2,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #0cc1e0;
+    
 }
 
 body {
     height: 90vh;
     background-image: url('fondo.webp');
-  background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+  background-size:auto; /* Ajusta la imagen para que cubra todo el fondo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
